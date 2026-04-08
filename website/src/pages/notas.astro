@@ -1,0 +1,22 @@
+---
+import Layout from "../layout/layout.astro";
+
+const archivos = import.meta.glob('./notas/*.md', { eager: true });
+const entradas = Object.entries(archivos).map(([path, mod]: [string, any]) => ({
+  ...mod,
+  url: path.replace('.', '').replace('.md', ''),
+}));
+entradas.sort((a, b) => a.frontmatter.title.localeCompare(b.frontmatter.title));
+---
+<Layout>
+    <h1>A veces, debemos escribir lo que no podemos decir.</h1>
+    <p>En este espacio, compartiré fragmentos de mi diario personal, pensamientos y reflexiones que no siempre son fáciles de expresar en palabras.</p>
+
+    <ul>
+        {entradas.map((entrada: any) => (
+            <li>
+                <a href={entrada.url}>{entrada.frontmatter.title}</a>
+            </li>
+        ))}
+    </ul>
+</Layout>

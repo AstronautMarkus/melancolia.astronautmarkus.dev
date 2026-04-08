@@ -1,0 +1,47 @@
+---
+import "../css/styles.css";
+import "../css/markdown.css";
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>melancolia.astronautmarkus.dev</title>
+    </head>
+    <body>
+        <img
+            src="/img/thumb-1920-1125678.png"
+            class="bg-image"
+            loading="lazy"
+        />
+        <div class="container">
+            <div class="header">
+                <h1>melancolia.astronautmarkus.dev</h1>
+            </div>
+
+            <div class="main">
+                <div class="sidebar">
+                    <h3>Archivos</h3>
+                    <a href="/">Inicio</a>
+                    <a href="/notas">Notas</a>
+
+                    <h3>Por qué?</h3>
+                    <p>Soy un humano igual que tú.</p>
+                    <p>
+                        Tengo mis altos y bajos, mis momentos de alegría y
+                        tristeza.
+                    </p>
+                    <p>Ese es el sentido de la vida.</p>
+                </div>
+
+                <div class="content">
+                    <slot />
+                </div>
+            </div>
+
+            <div class="footer">© {year} - <a href="https://astronautmarkus.dev/es" target="_blank">astronautmarkus.dev</a> </div>
+        </div>
+    </body>
+</html>
